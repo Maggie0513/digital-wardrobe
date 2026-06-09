@@ -1,0 +1,12 @@
+{
+  "name": "digital-wardrobe",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Mobile-first digital wardrobe web app deployed as a static site on Vercel.",
+  "scripts": {
+    "check": "node --check app.js",
+    "build": "echo Static site: no build step required"
+  },
+  "dependencies": {},
+  "devDependencies": {}
+}

@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>&#25163;&#27231;&#29256;&#25976;&#20301;&#34915;&#27331;</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="phone-app">
+    <header class="app-header">
+      <div>
+        <p class="eyebrow">My Closet</p>
+        <h1>&#25976;&#20301;&#34915;&#27331;</h1>
+      </div>
+      <div class="count-pill"><span id="item-count">0</span> &#20214;</div>
+    </header>
+
+    <main>
+      <section class="page active" id="closet-page">
+        <div class="filter-bar" aria-label="category filter">
+          <button class="filter-chip active" type="button" data-category="&#20840;&#37096;">&#20840;&#37096;</button>
+          <button class="filter-chip" type="button" data-category="&#19978;&#34915;">&#19978;&#34915;</button>
+          <button class="filter-chip" type="button" data-category="&#35044;&#23376;">&#35044;&#23376;</button>
+          <button class="filter-chip" type="button" data-category="&#35033;&#23376;">&#35033;&#23376;</button>
+          <button class="filter-chip" type="button" data-category="&#22806;&#22871;">&#22806;&#22871;</button>
+          <button class="filter-chip" type="button" data-category="&#38795;&#23376;">&#38795;&#23376;</button>
+        </div>
+
+        <p class="status-text" id="app-status"></p>
+        <div class="closet-grid" id="closet-grid"></div>
+      </section>
+
+      <section class="page" id="add-page">
+        <div class="form-heading">
+          <h2>&#26032;&#22686;&#34915;&#29289;</h2>
+          <p>&#19978;&#20659;&#29031;&#29255;&#24460;&#26371;&#20808;&#22739;&#32302;&#65292;&#20877;&#23384;&#21040;&#28687;&#35261;&#22120;&#12290;</p>
+        </div>
+
+        <form class="closet-form" id="closet-form">
+          <label class="photo-picker">
+            <input id="photo-input" name="photo" type="file" accept="image/*" required>
+            <span class="photo-preview" id="photo-preview">
+              <span>&#36984;&#25799;&#29031;&#29255;</span>
+            </span>
+          </label>
+          <p class="image-note" id="image-note">&#24314;&#35696;&#20351;&#29992;&#28165;&#26970;&#30340;&#21934;&#21697;&#29031;&#29255;&#65292;&#26371;&#22739;&#32302;&#25104; WebP &#20877;&#19978;&#20659;&#12290;</p>
+
+          <label>
+            &#34915;&#29289;&#21517;&#31281;
+            <input name="name" type="text" placeholder="&#20363;&#22914;&#65306;&#30333;&#33394;&#30701;&#34966; T &#24676;" required>
+          </label>
+
+          <label>
+            &#20998;&#39006;
+            <select name="category" required>
+              <option value="&#19978;&#34915;">&#19978;&#34915;</option>
+              <option value="&#35044;&#23376;">&#35044;&#23376;</option>
+              <option value="&#35033;&#23376;">&#35033;&#23376;</option>
+              <option value="&#22806;&#22871;">&#22806;&#22871;</option>
+              <option value="&#38795;&#23376;">&#38795;&#23376;</option>
+            </select>
+          </label>
+
+          <label>
+            &#38991;&#33394;
+            <input name="color" type="text" placeholder="&#20363;&#22914;&#65306;&#22902;&#27833;&#30333;&#12289;&#28145;&#34253;&#12289;&#40657;&#33394;" required>
+          </label>
+
+          <label>
+            &#20633;&#35387;
+            <textarea name="note" rows="3" placeholder="&#26448;&#36074;&#12289;&#29256;&#22411;&#12289;&#36969;&#21512;&#25645;&#37197;&#20160;&#40636;"></textarea>
+          </label>
+
+          <div class="form-actions">
+            <button class="secondary-button" id="cancel-button" type="button">&#21462;&#28040;</button>
+            <button class="primary-button" id="submit-button" type="submit">&#20786;&#23384;</button>
+          </div>
+        </form>
+      </section>
+    </main>
+
+    <nav class="bottom-nav" aria-label="bottom navigation">
+      <button class="nav-button active" type="button" data-page="closet-page">&#34915;&#27331;</button>
+      <button class="nav-button add-button" type="button" data-page="add-page">&#65291; &#26032;&#22686;</button>
+    </nav>
+  </div>
+
+  <template id="card-template">
+    <article class="closet-card">
+      <div class="card-image"></div>
+      <div class="card-body">
+        <div>
+          <h3></h3>
+          <p></p>
+        </div>
+        <button class="delete-button" type="button">&#21034;&#38500;</button>
+      </div>
+      <p class="card-note"></p>
+    </article>
+  </template>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="app.js"></script>
+</body>
+</html>
